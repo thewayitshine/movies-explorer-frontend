@@ -1,0 +1,72 @@
+.search {
+  padding: 67px 0 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+
+.search__field {
+  width: 100%;
+  padding: 0 0 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.search__input {
+  width: 80%;
+  text-align: center;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: normal;
+  outline: none;
+  border: none;
+}
+
+.search__btn {
+  padding: 17px;
+  cursor: pointer;
+  background-color: #ff6838;
+  background-image: url(../../images/arrow.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 48px;
+  border: none;
+}
+
+.search__icon {
+  margin: 0 0 0 5px;
+  padding: 17px;
+  background: url(../../images/loupe-icon.svg) no-repeat center;
+  border: 1px solid #e8e8e8;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 768px) {
+  .search {
+    padding: 80px 0 61px;
+  }
+} 
+
+@media screen and (max-width: 550px) {
+  .search {
+    padding: 87px 4px 37px;
+    gap: 35px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .search__input {
+    text-align: left;
+    font-size: 18px;
+    line-height: normal;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .search__field {
+    padding: 0 0 9px;
+  }
+}

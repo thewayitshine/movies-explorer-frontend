@@ -16,6 +16,11 @@ function SavedMovies({ savedMovies, onDeleteMovie, onEmptyReqMessage }) {
   let size = useResize();
 
   useEffect(() => {
+    moviesFilter({ isShortFilm: null, searchValue: '' })
+    localStorage.removeItem('foundReqSavedMovies');
+  }, [savedMovies]);
+
+  useEffect(() => {
     if (foundMovies) {
       setFilteredMovies(JSON.parse(foundMovies));
     } else {
@@ -31,7 +36,7 @@ function SavedMovies({ savedMovies, onDeleteMovie, onEmptyReqMessage }) {
     }
   }, [movieReq, savedMovies]);
 
-  const moviesFilter = (req) => {
+  function moviesFilter (req) {
     let filtered = [];
     localStorage.setItem('foundReqSavedMovies', JSON.stringify(req));
 

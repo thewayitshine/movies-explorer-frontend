@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
 import useResize from '../../hooks/useResize';
 
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
@@ -9,12 +11,13 @@ function SearchForm({ searchReq, onMoviesFilter, onEmptyReqMessage }) {
   const isChecked = JSON.parse(localStorage.getItem('filterCheckbox'));
 
   let size = useResize();
+  let location = useLocation();
 
   const [isShortFilm, setIsShortFilm] = useState(isChecked);
   const [searchValue, setSearchValue] = useState('');
   
   useEffect(() => {
-    if (searchReq.searchValue) {
+    if (location.pathname === '/movies' && searchReq.searchValue) {
       setSearchValue(searchReq.searchValue);
     }
   }, [searchReq.searchValue]);
@@ -44,7 +47,7 @@ function SearchForm({ searchReq, onMoviesFilter, onEmptyReqMessage }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (searchValue === '') {
+    if (searchValue === '' && location.pathname === '/movies') {
       onEmptyReqMessage();
       return;
     }

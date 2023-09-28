@@ -7,11 +7,16 @@ import SubmitButton from "../SubmitButton/SubmitButton";
 
 import './Profile.css';
 
-function Profile({ onLogout, onUpdateUser, readOnly, isEditClicked, onEditUser }) {
+function Profile({ onLogout, onUpdateUser, readOnly, isEditClicked, onEditUser, onDisableEditUser }) {
   const { values, setValues, errors, isValid, setIsValid, handleChange } = useValidation();
 
   // Получаем текущего пользователя
   const currentUser = useContext(CurrentUserContext);
+
+  // Сбрасываем редактирование при уходе со страницы
+  useEffect(() => {
+    onDisableEditUser();
+  }, []);
 
   // При изменении текущего пользователя - записываем значения в стейт полей
   useEffect(() => {

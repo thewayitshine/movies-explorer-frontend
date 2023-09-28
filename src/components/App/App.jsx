@@ -223,6 +223,11 @@ function App() {
       });
   }
 
+  const handleDisableEditUser = () => {
+    setReadOnly(true);
+    setIsEditClicked(false);
+  }
+
   // При нажатии на "Редактировать" убираем readOnly и показываем кнопку "Сохранить"
   const handleEditUser = () => {
     setReadOnly(false);
@@ -345,7 +350,8 @@ function App() {
               onUpdateUser={handleUpdateUser} 
               readOnly={readOnly} 
               isEditClicked={isEditClicked}
-              onEditUser={handleEditUser} />} />
+              onEditUser={handleEditUser}
+              onDisableEditUser={handleDisableEditUser} />} />
       </Routes>
       {footerPaths.includes(location.pathname) ? <Footer /> : "" }
 

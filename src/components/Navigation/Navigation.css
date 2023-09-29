@@ -82,6 +82,22 @@
   background-color: #f9f9f9;
 }
 
+.navigation__link_type_profile-logged {
+  margin: 0 0 0 auto;
+  padding: 0 0 5px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.navigation__link_type_profile-logged::after {
+  content: url(../../images/acc-icon.svg);
+  margin: 0 0 0 16px;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #2be080;
+}
+
 .navigation__link_type_signin {
   padding: 8px 20px;
   color: #000;
